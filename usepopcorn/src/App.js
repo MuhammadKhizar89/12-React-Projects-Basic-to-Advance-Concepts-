@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import StarRating from "./StarRating";
 import {useMovies} from "./useMovies";
+import { useLocalStorageState } from "./useLocalStorageState";
+import { useKey } from "./useKey";
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
@@ -29,19 +31,11 @@ function Logo() {
 }
 function Search({ query, setQuery }) {
   const inputEl = useRef(null);
-  useEffect(function() {
-    function useCallback(e) {
-      if (document.activeElement === inputEl.current) return;
-      if (e.code === "Enter") {
+  useKey("Enter", () =>{
+    if (document.activeElement === inputEl.current) return;
         inputEl.current.focus();
-        setQuery("");
-      }
-    }
-
-    document.addEventListener("keydown", useCallback)
-    return () => document.removeEventListener("keydown", useCallback)
-  },[setQuery])
-
+        
+  });
 
   return (
     <input
@@ -185,9 +179,8 @@ const KEY = "d5e768fd"
 export default function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState("");
-  const [watched, setWatched] = useState(function () {
-    return localStorage.getItem("watched") ? JSON.parse(localStorage.getItem("watched")) : []
-  });
+  const [watched, setWatched] =useLocalStorageState([],"watched")
+  
 
 
   const { movies, isLoading, error } = useMovies(query);
@@ -201,10 +194,7 @@ export default function App() {
     setWatched((watched) => [...watched, movie]);
 
   }
-  useEffect(function () {
-    localStorage.setItem("watched", JSON.stringify(watched));
-  }, [watched])
-
+  
 
 
   return (
@@ -244,24 +234,7 @@ function SelctedMovie({ selectedId, setSelectedId, handleAddWatched, watched, se
   } = movie;
   const [userRating, setUserRating] = useState(0);
 
-  useEffect(
-    function () {
-      document.addEventListener("keydown", function (e) {
-        if (e.code === "Escape") {
-          setSelectedId(null);
-        }
-      })
-
-      return function () {
-        document.removeEventListener("keydown", function (e) {
-          if (e.code === "Escape") {
-            setSelectedId(null);
-          }
-        })
-      }
-    }
-    , [setSelectedId]);
-
+  useKey("Escape", () => setSelectedId(null));
   useEffect(function () {
     async function getMovie() {
       setLoader(true);
