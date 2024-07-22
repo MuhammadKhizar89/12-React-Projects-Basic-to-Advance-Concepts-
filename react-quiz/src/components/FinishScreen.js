@@ -1,4 +1,7 @@
-function FinishScreen({points,maxpoints,dispatch}) {
+import { useQuiz } from "../Context/QuizContext"
+
+function FinishScreen() {
+    const {points,maxpoints,dispatch}=useQuiz();
     return (
         <>
         <p className="result">
