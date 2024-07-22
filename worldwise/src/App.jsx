@@ -1,4 +1,5 @@
 import { CitiesProvider } from "./contexts/CitiesContext";
+import { AuthProvider } from "./contexts/FakeAuthContext";
 import {BrowserRouter, Navigate} from "react-router-dom";
 import Home from "./pages/Homepage";
 import Product from "./pages/Product";
@@ -11,9 +12,13 @@ import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
 import Form from "./components/Form";
+import Protect from "./pages/Protect";
+
 function App() {
+
+
     return (
-        <div>
+            <AuthProvider>
             <CitiesProvider>
             <BrowserRouter>
                 <Routes>
@@ -21,7 +26,11 @@ function App() {
                     <Route path="product" element={<Product />} />
                     <Route path="pricing" element={<Pricing />} />
                     <Route path="login" element={<Login />} />
-                    <Route path="app" element={<AppLayout/>}>
+                    <Route path="app" element={
+                        <Protect>
+                        <AppLayout/>
+                        </Protect>
+                        }>
                     <Route index element={<Navigate replace to="cities" />} />
                       <Route path="cities" element={<CityList/>} />
                       <Route path="cities/:id" element={<City/>} />
@@ -32,7 +41,7 @@ function App() {
                 </Routes>
             </BrowserRouter>
             </CitiesProvider>
-        </div>
+         </AuthProvider>
     );
 }
 export default App;

@@ -1,16 +1,28 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🚩",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
+      "id": "c5a0",
+      "cityName": "Mianwali",
+      "country": "Pakistan",
+      "emoji": "🇵🇰",
+      "date": "2024-07-22T06:33:19.050Z",
+      "notes": "",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
+        "lat": "32.509761735919426",
+        "lng": "71.41113281250001"
+      }
+    },
+    {
+      "id": "7273",
+      "cityName": "Kabul",
+      "country": "Afghanistan",
+      "emoji": "🇦🇫",
+      "date": "2024-07-22T06:33:32.344Z",
+      "notes": "",
+      "position": {
+        "lat": "34.50655662164561",
+        "lng": "69.23583984375001"
+      }
     }
   ]
 }
