@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "id": "c5a0",
-      "cityName": "Mianwali",
-      "country": "Pakistan",
-      "emoji": "🇵🇰",
-      "date": "2024-07-22T06:33:19.050Z",
-      "notes": "",
-      "position": {
-        "lat": "32.509761735919426",
-        "lng": "71.41113281250001"
-      }
-    },
-    {
       "id": "7273",
       "cityName": "Kabul",
       "country": "Afghanistan",
@@ -22,6 +10,18 @@
       "position": {
         "lat": "34.50655662164561",
         "lng": "69.23583984375001"
+      }
+    },
+    {
+      "id": "7ad5",
+      "cityName": "Topi",
+      "country": "Pakistan",
+      "emoji": "🇵🇰",
+      "date": "2024-07-22T13:30:25.013Z",
+      "notes": "",
+      "position": {
+        "lat": "34.17999758688084",
+        "lng": "72.72949218750001"
       }
     }
   ]
