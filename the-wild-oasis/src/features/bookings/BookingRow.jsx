@@ -6,6 +6,7 @@ import Table from "../../ui/Table";
 
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
+import Menus from "../../ui/Menus";
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -79,6 +80,18 @@ function BookingRow({
       <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
+
+      <Menus.Menu>
+<Menus.Toggle id={bookingId}>
+  <Menus.List>
+    <Menus.Button onClick={()=> console.log(bookingId)}>
+      SEE Details
+    </Menus.Button>
+  </Menus.List>
+
+</Menus.Toggle>
+
+      </Menus.Menu>
     </Table.Row>
   );
 }

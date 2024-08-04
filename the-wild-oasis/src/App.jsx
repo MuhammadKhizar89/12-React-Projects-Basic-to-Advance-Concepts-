@@ -12,6 +12,7 @@ import PageNotFound from "./pages/PageNotFound";
 import GlobalStyles from "./styles/GlobalStyles";
 import AppLayout from "./ui/AppLayout";
 import Toaster from "react-hot-toast";
+import BookingDetails from "./pages/BookingDetails";
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
@@ -31,6 +32,7 @@ function App() {
                             <Route index element={<Navigate replace to="dashboard" />} />
                             <Route path="dashboard" element={<Dashboard />} />
                             <Route path="bookings" element={<Booking />} />
+                            <Route path="bookings/:bookingId" element={<BookingDetails />} />
                             <Route path="cabins" element={<Cabins />} />
                             <Route path="users" element={<Users />} />
                             <Route path="settings" element={<Settings />} />
@@ -40,28 +42,27 @@ function App() {
                         <Route path="*" element={<PageNotFound />} />
                     </Routes>
                 </BrowserRouter>
-                
             </QueryClientProvider>
             <Toaster
-                    position="top-center"
-                    gutter={12}
-                    containerStyle={{margin: "8px"}}
-                    toastOptions={{
-                        success: {
-                            duration: 3000,
-                        },
-                        error: {
-                            duration: 3000,
-                        },
-                        toast: {
-                            fontSize: "16px",
-                            maxWidth: "500px",
-                            padding: "16px 24px",
-                            backgroundColor: "var(--color-grey-0)",
-                            color: "var(--color-grey-600)",
-                        },
-                    }}
-                />
+                position="top-center"
+                gutter={12}
+                containerStyle={{margin: "8px"}}
+                toastOptions={{
+                    success: {
+                        duration: 3000,
+                    },
+                    error: {
+                        duration: 3000,
+                    },
+                    toast: {
+                        fontSize: "16px",
+                        maxWidth: "500px",
+                        padding: "16px 24px",
+                        backgroundColor: "var(--color-grey-0)",
+                        color: "var(--color-grey-600)",
+                    },
+                }}
+            />
         </>
     );
 }

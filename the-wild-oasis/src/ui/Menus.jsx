@@ -72,7 +72,7 @@ function Menus({children}) {
     const open = setOpenId;
     const [position, setPosition] = useState({x: 0, y: 0});
     return (
-        <MenusContext.Provider value={{open, close, position, setPosition, openId}}>({children})</MenusContext.Provider>
+        <MenusContext.Provider value={{open, close, position, setPosition, openId}}>{children}</MenusContext.Provider>
     );
 }
 function Toggle({id}) {
