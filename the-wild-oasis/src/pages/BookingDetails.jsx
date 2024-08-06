@@ -1,8 +1,9 @@
 import React from 'react'
+import BookingDetail from '../features/bookings/BookingDetail'
 
 const BookingDetails = () => {
   return (
-    <div>BookingDetails</div>
+    <div><BookingDetail/></div>
   )
 }
 

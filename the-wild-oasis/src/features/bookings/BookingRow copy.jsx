@@ -11,7 +11,6 @@ import Menus from "../../ui/Menus";
 import {useNavigate} from "react-router-dom";
 import {HiArrowDownOnSquare, HiArrowUpOnSquare, HiEye, HiTrash} from "react-icons/hi2";
 import {useCheckout} from "../check-in-out/useCheckout";
-import { useDeleteBooking } from "./useDeleteBooking";
 
 const Cabin = styled.div`
     font-size: 1.6rem;
@@ -61,7 +60,6 @@ function BookingRow({
     };
     const navigate = useNavigate();
     const {checkout, isCheckingOut} = useCheckout();
-    const {isDeleting, deleteBooking} = useDeleteBooking();
     return (
         <Table.Row>
             <Cabin>{cabinName}</Cabin>
@@ -117,7 +115,7 @@ function BookingRow({
                     </Menus.List>
                 </Menus.Menu>
             <Modal.Window name="delete">
-                <ConfirmDelete resourceName={"booking"} onConfirm={() => deleteBooking(bookingId)}/>
+                <ConfirmDelete/>
             </Modal.Window>
             </Modal>
         </Table.Row>
