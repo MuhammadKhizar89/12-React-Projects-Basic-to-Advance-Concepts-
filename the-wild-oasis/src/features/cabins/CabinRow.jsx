@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {formatCurrency} from "../../utils/helpers";
 import CreateCabinForm from "./CreateCabinForm";
-import {useState} from "react";
 import {useDeleteCabin} from "./useDeleteCabin";
 import {HiPencil, HiSquare2Stack, HiTrash} from "react-icons/hi2";
 import ConfirmDelete from "../../ui/ConfirmDelete";
@@ -76,7 +75,7 @@ const CabinRow = ({cabin}) => {
                         <Menus.Menu>
                             <Menus.Toggle id={cabin.id} />
                             <Menus.List id={cabin.id}>
-                                <Menus.Button onClick={() => handleDuplicate()} icon={<HiSquare2Stack />}>
+                                <Menus.Button disabled={isCreating} onClick={() => handleDuplicate()} icon={<HiSquare2Stack />}>
                                     Duplicate
                                 </Menus.Button>
 
