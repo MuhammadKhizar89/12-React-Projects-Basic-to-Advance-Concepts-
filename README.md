@@ -14,9 +14,9 @@ Each folder is a standalone mini-project that demonstrates specific features and
 | Controlled components, toggle state           |
 | Filtering, categories                         |
 | Dynamic tabs, content switching               |
-| Custom hooks, automatic sliding               |
-| Forms, generate dynamic text                  |
-| useRef, copy to clipboard                     |
+| Custom hooks               |
+| Forms                  |
+| useRef                     |
 | LocalStorage, CRUD operations                 |
 | Responsive menu, useEffect cleanup            |
 | Context API, compound components              |
@@ -39,3 +39,4 @@ npm install
 
 # Start the development server
 npm start
+
