@@ -404,3 +404,13 @@ function useFetch<T>(url: string): FetchState<T> {
     };
 }
 useFetch<{ name: string; age: number }>("https://api.example.com/user/1");
+
+
+
+function getFirstElement<T>(arr: T[]): T|undefined {
+    return arr[0];
+}
+
+const firstString = getFirstElement<string>(["hello", "world"]);
+const firstNumber = getFirstElement<number>([1, 2, 3]);
+// node --loader ts-node/esm src/index.ts
